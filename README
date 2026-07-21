@@ -1,0 +1,47 @@
+# AI-Powered Competitor News Monitor & Weekly Digest
+
+This n8n workflow automatically monitors AI and automation news and sends a weekly digest by Gmail.
+
+## Workflow Overview
+
+The workflow runs every Monday at 9:00 AM and collects news from:
+
+- OpenAI official RSS feed
+- Google News AI and automation RSS feed
+
+It then:
+
+1. Combines both feeds
+2. Keeps articles from the previous seven days
+3. Removes duplicate stories
+4. Sorts articles by publication date
+5. Limits the input to the 15 most recent articles
+6. Uses GPT-4o-mini through n8n AI credits to generate:
+   - An executive summary
+   - Five key takeaways
+   - Competitive signals
+   - Items to watch next week
+7. Formats the result as a Markdown digest
+8. Sends the digest through Gmail
+
+## Workflow File
+
+Download or import:
+
+`AI Competitor News Monitor.json`
+
+In n8n, choose **Import from File** and select the JSON file.
+
+## AI Prompt
+
+The AI was instructed to act as a competitive-intelligence analyst and summarize only the supplied articles. It was asked to create a short executive summary, exactly five key takeaways, two to three competitive signals, and three things to watch during the following week without inventing information.
+
+## AI Tools Used
+
+- n8n AI Assistant for initial workflow generation
+- OpenAI GPT-4o-mini for weekly news summarization
+- ChatGPT for workflow architecture, JavaScript Code nodes, prompt refinement, and troubleshooting
+
+## Output
+
+The final digest is delivered through Gmail in Markdown-style plain text and includes the reporting date, executive summary, takeaways, competitive signals, and source information.
